@@ -3,7 +3,7 @@ import Sidebar from "@/components/Sidebar"
 import Modal from "react-modal"
 import useQuiosco from "@/hooks/useQuiosco";
 import ModalProducto from "@/components/ModalProducto";
-import Pasos from "@/components/pasos";
+import Pasos from "@/components/Pasos";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
