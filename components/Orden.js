@@ -19,9 +19,9 @@ export default function Orden({orden}) {
             <p className="text-lg font-bold">Cliente: {nombre}</p>
             <div>
                 {pedido.map(platillo => (
-                    <div key={platillo.id} className='py-3 flex border-b last-of-type:border-0 items-center'>
-                        <div className='w-32'>
-                            <Image src={`/assets/img/${platillo.imagen}.jpg`} alt={`Imagen producto ${platillo.nombre}`} width={500} height={600} />
+                    <div key={platillo.id} className='py-3 sm:flex border-b last-of-type:border-0 items-center'>
+                        <div className='sm:w-32 sm:shrink-0'>
+                            <Image src={`/assets/img/${platillo.imagen}.jpg`} alt={`Imagen producto ${platillo.nombre}`} width={500} height={600} className='w-full' />
                         </div>
                         <div className="p-5 space-y-2">
                             <h4 className='text-xl font-bold text-amber-500'>{platillo.nombre}</h4>
