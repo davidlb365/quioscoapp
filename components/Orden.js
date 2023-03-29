@@ -2,15 +2,20 @@ import { formatearDinero } from '@/helpers'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import Image from 'next/image'
+import useQuiosco from '@/hooks/useQuiosco'
 
 export default function Orden({orden}) {
+    const {setLoading} = useQuiosco()
     const {id, nombre, total, pedido} = orden
     const completarOrden = async () => {
         try {
+            setLoading(true)
             await axios.post(`/api/ordenes/${id}`)
             toast.success('Orden Lista')
         } catch (error) {
             toast.error('Hubo un Error')
+        } finally {
+            setLoading(false)
         }
     }
     return (

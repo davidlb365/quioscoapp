@@ -78,6 +78,7 @@ const QuioscoProvider = ({children}) => {
     const colocarOrden = async e => {
         e.preventDefault()
         try {
+            setLoading(true)
             await axios.post('/api/ordenes', {pedido, nombre, total, fecha: Date.now().toString()})
             setCategoriaActual(categorias[0])
             setPedido([])
@@ -89,6 +90,8 @@ const QuioscoProvider = ({children}) => {
             }, 3000);
         } catch (error) {
             console.log(error)
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -99,6 +102,7 @@ const QuioscoProvider = ({children}) => {
                 handleClickCategoria,
                 categoriaActual,
                 loading,
+                setLoading,
                 producto,
                 handleSetProducto,
                 modal,

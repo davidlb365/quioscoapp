@@ -1,3 +1,4 @@
+import Spinner from "@/components/Spinner";
 import { formatearDinero } from "@/helpers";
 import useQuiosco from "@/hooks/useQuiosco";
 import Layout from "@/layout/Layout";
@@ -5,7 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 
 export default function Total() {
     
-    const {pedido, nombre, setNombre, total, colocarOrden} = useQuiosco()
+    const {pedido, nombre, setNombre, total, colocarOrden, loading} = useQuiosco()
     const comprobarPedido = () => {
         return pedido.length === 0 || nombre === "" || nombre.length < 3
     }
@@ -14,6 +15,7 @@ export default function Total() {
         <Layout pagina='Total y Confirmar Pedido'>
             <h1 className="text-4xl font-black">Total y Confirmar Pedido</h1>
             <p className="text-2xl my-10">Confirma tu pedido a Continuación</p>
+            {loading && <Spinner />}
             <form onSubmit={colocarOrden}>
                 <div>
                     <label htmlFor="nombre" className="block text-slate-800 uppercase font-bold text-xl">Nombre</label>
