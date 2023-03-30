@@ -14,12 +14,12 @@ export default function Home() {
         <Layout pagina={`Menú ${categoriaActual?.nombre}`}>
             <h1 className='text-4xl font-black'>{categoriaActual?.nombre}</h1>
             <p className='text-2xl my-10'>Elige y personaliza tu pedido a continuación</p>
-            {loading && <Spinner />}
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                 {categoriaActual?.productos?.map(producto => (
                     <Producto key={producto.id} producto={producto}/>
                 ))} 
             </div>
+            {loading && <Spinner />}
         </Layout>
     )
 }
