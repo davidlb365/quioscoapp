@@ -13,8 +13,9 @@ export default function Admin() {
         <AdminLayout pagina={'Admin'}>
             <h1 className="text-4xl font-black">Panel de Administración</h1>
             <p className="text-2xl my-10">Administra tus órdenes</p>
-            {(isLoading || loading) && <Spinner />}
-            {data && data.length ? data.map(orden => <Orden key={orden.id} orden={orden} />) : <p>No hay órdenes pendientes</p> }
+            {(isLoading || loading) ? <Spinner /> : (
+                data && data.length ? data.map(orden => <Orden key={orden.id} orden={orden} />) : <p>No hay órdenes pendientes</p>
+            )}
         </AdminLayout>
     )
 }

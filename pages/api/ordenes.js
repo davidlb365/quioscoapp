@@ -8,7 +8,6 @@ export default async function handler(req, res) {
             estado: false
         }
     })
-    res.status(200).json(ordenes)
 
     // Crear Ordenes
     if(req.method === 'POST') {
@@ -26,6 +25,6 @@ export default async function handler(req, res) {
 
     // Obtener Ordenes
     if(req.method === 'GET') {
-        
+        res.status(200).json(ordenes)
     }
 }
